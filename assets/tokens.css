@@ -1,0 +1,17 @@
+/* Namespaced additions only. Never replace inherited --pi-* plugin tokens. */
+:root {
+  --dc-bg: #0D1117;
+  --dc-sidebar: #161B22;
+  --dc-panel: #1C232D;
+  --dc-hover: #252F3D;
+  --dc-border: #374151;
+  --dc-control-border: #6E7D90;
+  --dc-text: #E6EDF3;
+  --dc-secondary: #AAB6C5;
+  --dc-accent: #388BFD;
+  --dc-selection: #142E4D;
+  --dc-success: #3FB950;
+  --dc-error: #F85149;
+  --dc-radius: 9px;
+  --dc-space: 8px;
+}

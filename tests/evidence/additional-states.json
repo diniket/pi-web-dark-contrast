@@ -1,0 +1,30 @@
+[
+  {
+    "name": "owner-disabled input and Stop retain the core native disabled semantics",
+    "pass": true
+  },
+  {
+    "name": "client submission disables Send without disabling available Stop",
+    "pass": true
+  },
+  {
+    "name": "streaming default action remains identifiable",
+    "pass": true
+  },
+  {
+    "name": "shell input mode remains visually identifiable without executing it",
+    "pass": true
+  },
+  {
+    "name": "RTL selection edge and rounded start corner remain logical",
+    "pass": true,
+    "details": {
+      "startWidth": "4px",
+      "startRadius": "9px"
+    }
+  },
+  {
+    "name": "selected tool tab retains structural cue in forced colors",
+    "pass": true
+  }
+]

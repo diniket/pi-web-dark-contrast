@@ -1,0 +1,196 @@
+/* Pi Web 1.202611.1 / 98316bd. All rules are restricted to core roots.
+   No generic .ui-button rules, palette replacement, or plugin-content selectors.
+   Internal chrome selectors are deliberately isolated from supported hooks. */
+
+/* 1. Core shell: paint only; do not change inherited font/color/tokens. */
+:host(pi-web-app) .shell,
+:host(pi-web-app) main,
+:host(pi-web-app) .composer-area { background: var(--dc-bg); }
+:host(pi-web-app) aside { background: var(--dc-sidebar); }
+:host(pi-web-app) .context-bar { background: var(--dc-sidebar); border-color: var(--dc-border); }
+:host(pi-web-app) .context-chip {
+  color: var(--dc-text); background: var(--dc-panel); border-color: var(--dc-border);
+}
+:host(pi-web-app) .context-chip:hover { background: var(--dc-hover); }
+:host(pi-web-app) .empty { color: var(--dc-secondary); }
+:host(app-navigation-panel) header { background: var(--dc-sidebar); border-color: var(--dc-border); }
+:host(app-navigation-panel) .ui-button {
+  color: var(--dc-text); background: var(--dc-sidebar); border-color: var(--dc-border);
+}
+:host(app-panel-edge-control) button { background: var(--dc-sidebar); border-color: var(--dc-border); color: var(--dc-secondary); }
+
+/* 2. Shared navigation anatomy. Never recolor plugin-provided label wrappers. */
+:host(project-list) section,
+:host(workspace-list) section,
+:host(session-list) section { background: var(--dc-sidebar); }
+:host(project-list) section > h2,
+:host(workspace-list) section > h2,
+:host(session-list) section > h2 {
+  background: var(--dc-panel); border-block: 1px solid var(--dc-border);
+  margin-block: 5px; min-block-size: 42px; box-shadow: none;
+}
+:host(project-list) h2 .ui-button,
+:host(workspace-list) h2 .ui-button,
+:host(session-list) h2 .ui-button {
+  color: var(--dc-text); background: transparent; font-weight: 650;
+}
+:host(project-list) .ui-nav-list,
+:host(workspace-list) .ui-nav-list,
+:host(session-list) .ui-nav-list { padding-inline: var(--dc-space); scrollbar-color: var(--dc-border) var(--dc-sidebar); }
+:host(project-list) .ui-nav-row,
+:host(workspace-list) .ui-nav-row,
+:host(session-list) .ui-nav-row { margin-block: 3px; border-radius: var(--dc-radius); }
+:host(project-list) .ui-nav-row-main,
+:host(workspace-list) .ui-nav-row-main,
+:host(session-list) .ui-nav-row-main {
+  background: transparent; border-color: transparent; border-block-end-color: var(--dc-border);
+  min-block-size: 49px; padding-block: 9px; border-radius: 0;
+  border-inline-start-width: 4px;
+  border-start-start-radius: var(--dc-radius); border-end-start-radius: var(--dc-radius);
+}
+:host(project-list) .ui-nav-row-action,
+:host(workspace-list) .ui-nav-row-action,
+:host(session-list) .ui-nav-row-action { background: transparent; border-color: transparent; color: var(--dc-secondary); border-radius: 0;
+  border-start-end-radius: var(--dc-radius); border-end-end-radius: var(--dc-radius); }
+:host(project-list) .ui-nav-row-label,
+:host(session-list) .ui-nav-row-label,
+:host(workspace-list) .workspace-primary-label { color: var(--dc-text); font-weight: 600; line-height: 1.35; }
+:host(project-list) .ui-nav-row-meta,
+:host(session-list) .session-meta { color: var(--dc-secondary); font-size: 12px; line-height: 1.5; }
+:host(project-list) .ui-nav-row:hover .ui-nav-row-main,
+:host(workspace-list) .ui-nav-row:hover .ui-nav-row-main,
+:host(session-list) .ui-nav-row:hover .ui-nav-row-main { background: var(--dc-panel); }
+:host(project-list) .ui-nav-row[data-current="true"] .ui-nav-row-main,
+:host(workspace-list) .ui-nav-row[data-current="true"] .ui-nav-row-main,
+:host(session-list) .ui-nav-row[data-current="true"] .ui-nav-row-main,
+:host(session-list) .ui-nav-row[data-selected="true"] .ui-nav-row-main {
+  background: var(--dc-selection); border-color: var(--dc-accent);
+  border-inline-start-color: var(--dc-accent);
+}
+:host(project-list) .ui-nav-row[data-current="true"] .ui-nav-row-action,
+:host(workspace-list) .ui-nav-row[data-current="true"] .ui-nav-row-action,
+:host(session-list) .ui-nav-row[data-current="true"] .ui-nav-row-action { background: var(--dc-selection); color: var(--dc-text); }
+:host(project-list) .ui-nav-row:focus-visible,
+:host(workspace-list) .ui-nav-row:focus-visible,
+:host(session-list) .ui-nav-row:focus-visible { outline: 2px solid var(--dc-accent); outline-offset: -2px; }
+/* Root-local popovers only; native positioning and visibility remain untouched. */
+:host(project-list) .ui-popup-panel,
+:host(workspace-list) .ui-popup-panel,
+:host(session-list) .ui-popup-panel {
+  background: var(--dc-panel); color: var(--dc-text); border-color: var(--dc-border);
+}
+:host(project-list) .ui-menu-item,
+:host(workspace-list) .ui-menu-item,
+:host(session-list) .ui-menu-item { color: var(--dc-text); }
+:host(project-list) .ui-menu-item.danger,
+:host(workspace-list) .ui-menu-item.danger,
+:host(session-list) .ui-menu-item.danger { color: var(--dc-error); }
+
+/* 3. Chat: message frames and event headers, never custom renderer bodies. */
+:host(chat-view) .chat { background: var(--dc-bg); padding: var(--dc-space); scrollbar-color: var(--dc-border) var(--dc-bg); }
+:host(chat-view) .chat-message {
+  background: var(--dc-bg); border: 1px solid var(--dc-border);
+  border-inline-start-width: 3px; border-radius: var(--dc-radius);
+  margin-block-end: var(--dc-space);
+}
+:host(chat-view) .chat-message[data-speaker="user"] { background: var(--dc-panel); border-inline-start-color: var(--dc-accent); }
+:host(chat-view) .chat-message[data-speaker="assistant"] { border-inline-start-color: var(--dc-border); }
+:host(chat-view) .chat-message-body { color: var(--dc-text); font-size: 15px; line-height: 1.6; }
+:host(chat-view) .chat-message-meta { color: var(--dc-secondary); }
+/* Only the core message's own Markdown leaf, not formatted text in plugins. */
+:host(chat-view) .chat-message-body > formatted-text.part {
+  --formatted-link-color: var(--dc-accent); --formatted-muted-color: var(--dc-secondary);
+}
+:host(chat-view) .msg.event-group {
+  background: var(--dc-bg); border: 1px solid var(--dc-border);
+  border-radius: var(--dc-radius); margin-block-end: var(--dc-space);
+}
+:host(chat-view) .msg.event-group > summary {
+  background: var(--dc-panel); color: var(--dc-text); border-radius: 8px;
+  min-block-size: 36px; font-size: 13px; line-height: 1.5;
+}
+:host(chat-view) .msg.event-group > summary:hover { background: var(--dc-hover); }
+:host(chat-view) .group-msg + .group-msg { border-block-start-color: var(--dc-border); }
+:host(chat-view) .history-boundary { color: var(--dc-secondary); }
+:host(tool-execution-view) .tool-card { background: var(--dc-bg); border: 1px solid var(--dc-border); border-radius: var(--dc-radius); }
+:host(tool-execution-view) .tool-header { background: var(--dc-panel); color: var(--dc-text); }
+:host(tool-execution-view) .status-label { font-weight: 600; }
+:host(tool-execution-view) .success .status-label,
+:host(tool-execution-view) .success .status-icon { color: var(--dc-success); }
+:host(tool-execution-view) .error .status-label,
+:host(tool-execution-view) .error .status-icon { color: var(--dc-error); }
+:host(tool-execution-view) .running .status-label,
+:host(tool-execution-view) .running .status-icon { color: var(--dc-accent); }
+
+/* 4. Core-owned tool tabs; plugin panel content and its ancestors stay unchanged. */
+:host(workspace-panel) header { border-color: var(--dc-border); }
+:host(workspace-panel) .workspace-header-scroll-frame,
+:host(app-mobile-main-tabs) .mobile-tabs-frame { background: var(--dc-bg); }
+:host(workspace-panel) header .ui-button,
+:host(app-mobile-main-tabs) .mobile-tabs .ui-button {
+  background: var(--dc-bg); color: var(--dc-secondary); border-color: var(--dc-border);
+}
+:host(workspace-panel) header .ui-button.selected,
+:host(app-mobile-main-tabs) .mobile-tabs .ui-button.selected {
+  background: var(--dc-selection); color: var(--dc-text); box-shadow: inset 0 -3px var(--dc-accent);
+}
+
+/* 5. Composer: paint/borders only around the existing CodeMirror input. */
+:host(prompt-editor) footer {
+  background: var(--dc-panel); border: 1px solid var(--dc-border);
+  border-radius: var(--dc-radius); border-color: var(--dc-control-border); margin: 6px 8px;
+}
+:host(prompt-editor) footer:focus-within { border-color: var(--dc-accent); box-shadow: 0 0 0 1px var(--dc-accent); }
+:host(prompt-editor) footer.shell-mode { border-color: var(--dc-success); }
+/* Color-only editor integration: preserve CodeMirror's geometry and input path. */
+:host(prompt-editor) .markdown-editor .cm-editor { background: var(--dc-panel); color: var(--dc-text); border-radius: 8px 8px 0 0; }
+:host(prompt-editor) .markdown-editor .cm-placeholder,
+:host(prompt-editor) .markdown-editor .cm-argument-hint { color: var(--dc-secondary); }
+:host(prompt-editor) .markdown-editor .cm-content { caret-color: var(--dc-accent); }
+:host(prompt-editor) .markdown-editor .cm-cursor { border-left-color: var(--dc-accent); }
+:host(prompt-editor) .ui-composer-toolbar { background: var(--dc-sidebar); border-color: var(--dc-border); border-end-start-radius: 8px; border-end-end-radius: 8px; }
+:host(prompt-editor) [data-composer-action] {
+  color: var(--dc-text); background: transparent; border-color: var(--dc-border);
+}
+:host(prompt-editor) [data-composer-action]:hover:not(:disabled) { background: var(--dc-hover); }
+:host(prompt-editor) [data-composer-action][data-default="true"]:not(:disabled) {
+  background: var(--dc-accent); color: var(--dc-bg); font-weight: 650;
+}
+:host(prompt-editor) [data-composer-action="stop"]:not(:disabled) { color: var(--dc-error); }
+:host(prompt-editor) [data-composer-action]:disabled { color: var(--dc-secondary); opacity: .6; }
+:host(prompt-editor) [data-composer-action]:focus-visible,
+:host(workspace-panel) header .ui-button:focus-visible,
+:host(app-mobile-main-tabs) .mobile-tabs .ui-button:focus-visible {
+  outline: 2px solid var(--dc-accent); outline-offset: -3px;
+}
+:host(prompt-editor) .chat-jumps button,
+:host(chat-view) .chat-jumps button { color: var(--dc-secondary); }
+:host(prompt-editor) .chat-jumps button.following,
+:host(chat-view) .chat-jumps button.following { color: var(--dc-accent); }
+:host(prompt-editor) .chat-jumps button:hover,
+:host(chat-view) .chat-jumps button:hover { color: var(--dc-text); background: var(--dc-selection); }
+:host(prompt-editor) .chat-jumps button:focus-visible,
+:host(chat-view) .chat-jumps button:focus-visible { outline: 2px solid var(--dc-accent); outline-offset: -2px; }
+:host(status-bar) .bar { background: var(--dc-bg); border-color: var(--dc-border); color: var(--dc-secondary); }
+:host(app-navigation-panel) .ui-button:disabled,
+:host(workspace-panel) header .ui-button:disabled,
+:host(app-mobile-main-tabs) .mobile-tabs .ui-button:disabled { color: var(--dc-secondary); opacity: .6; }
+
+/* Wide-screen proportions follow the reference; retain the original grid,
+   collapse variables, breakpoints, scroll controllers and native hidden states. */
+@media (min-width: 1381px) {
+  :host(pi-web-app) .shell { --navigation-panel-size: 314px; --workspace-panel-size: minmax(360px, 35vw); }
+}
+@media (max-width: 760px) {
+  :host(chat-view) .chat { padding: 4px; }
+  :host(prompt-editor) footer { margin: 4px; }
+}
+@media (forced-colors: active) {
+  :host(project-list) .ui-nav-row[data-current="true"] .ui-nav-row-main,
+  :host(workspace-list) .ui-nav-row[data-current="true"] .ui-nav-row-main,
+  :host(session-list) .ui-nav-row[data-current="true"] .ui-nav-row-main,
+  :host(session-list) .ui-nav-row[data-selected="true"] .ui-nav-row-main { border-color: Highlight; border-inline-start-width: 4px; }
+  :host(prompt-editor) [data-default="true"]:not(:disabled),
+  :host(workspace-panel) header .ui-button.selected,
+  :host(app-mobile-main-tabs) .mobile-tabs .ui-button.selected { outline: 2px solid Highlight; outline-offset: -3px; }
+}

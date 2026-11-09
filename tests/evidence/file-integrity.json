@@ -1,0 +1,11 @@
+{
+  "openspecFilesChecked": 28,
+  "openspecChanged": [],
+  "runtimeReferenceFilesChecked": 1253,
+  "runtimeChanged": [],
+  "productionPlugins": [
+    "pi-sudo-web-prompt"
+  ],
+  "openspecGitStatus": "",
+  "preexistingHubGitStatus": "?? pi-sudo-web-prompt/\n"
+}

@@ -1,0 +1,74 @@
+{
+  "name": "pi-web-dark-contrast",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "High-contrast dark theme for Pi Web: clearer navigation, chat, tool cards and composer, while plugins keep their own palette.",
+  "keywords": [
+    "pi-web.dev-plugin",
+    "pi-web-plugin",
+    "pi-web-theme",
+    "pi-web",
+    "pi-coding-agent",
+    "theme",
+    "dark-theme",
+    "contrast",
+    "accessibility"
+  ],
+  "license": "MIT",
+  "author": "diniket",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "files": [
+    "assets",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "piWeb": {
+    "plugins": [
+      {
+        "id": "dark-contrast",
+        "browserRoot": "assets",
+        "defaultEnabled": true,
+        "themes": [
+          {
+            "id": "dark-contrast",
+            "name": "Dark Contrast",
+            "description": "High-contrast core interface; plugins keep the official Pi Web Dark palette.",
+            "colorScheme": "dark",
+            "stylesheets": [
+              {
+                "id": "appearance",
+                "path": "theme.css",
+                "order": 2000
+              }
+            ],
+            "loadingScreen": {
+              "background": "#0D1117",
+              "foreground": "#E6EDF3",
+              "logo": "#388BFD"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "piWebTested": {
+    "piWebVersion": "1.202611.1",
+    "piWebCommit": "98316bd808a4f7e51c414750ec315e4454bc9db7"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs --check && node --test tests/*.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diniket/pi-web-dark-contrast.git"
+  },
+  "homepage": "https://github.com/diniket/pi-web-dark-contrast#readme",
+  "bugs": {
+    "url": "https://github.com/diniket/pi-web-dark-contrast/issues"
+  }
+}

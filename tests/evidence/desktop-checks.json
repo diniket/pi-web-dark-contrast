@@ -1,0 +1,112 @@
+{
+  "viewport": [
+    1792,
+    877
+  ],
+  "passed": 22,
+  "total": 22,
+  "skipped": 0,
+  "results": [
+    {
+      "name": "real OpenSpec panel mounted (unmodified external package)",
+      "pass": true
+    },
+    {
+      "name": "OpenSpec subtree appearance unchanged by redesign",
+      "pass": true,
+      "details": {
+        "elements": 246
+      }
+    },
+    {
+      "name": "all inherited OpenSpec --pi-* tokens unchanged",
+      "pass": true,
+      "details": {
+        "tokens": 58
+      }
+    },
+    {
+      "name": "redesign really changes core navigation selection",
+      "pass": true
+    },
+    {
+      "name": "core sidebar paint matches palette",
+      "pass": true
+    },
+    {
+      "name": "core chat paint matches palette",
+      "pass": true
+    },
+    {
+      "name": "navigation label typography matches palette",
+      "pass": true
+    },
+    {
+      "name": "native event disclosure expands",
+      "pass": true
+    },
+    {
+      "name": "real core tool cards rendered",
+      "pass": true,
+      "details": {
+        "count": 2
+      }
+    },
+    {
+      "name": "tool heading paint matches panel palette",
+      "pass": true
+    },
+    {
+      "name": "tool statuses have distinct readable colors",
+      "pass": true
+    },
+    {
+      "name": "native event disclosure collapses",
+      "pass": true
+    },
+    {
+      "name": "session selection remains connected to existing row handler",
+      "pass": true
+    },
+    {
+      "name": "native session action popup opens",
+      "pass": true
+    },
+    {
+      "name": "composer remains editable",
+      "pass": true
+    },
+    {
+      "name": "default composer action uses accessible accent treatment",
+      "pass": true
+    },
+    {
+      "name": "composer placeholder contrast uses secondary token",
+      "pass": true
+    },
+    {
+      "name": "composer focus is visible",
+      "pass": true
+    },
+    {
+      "name": "chat scroll remains independently contained",
+      "pass": true,
+      "details": {
+        "height": 712,
+        "scrollHeight": 740
+      }
+    },
+    {
+      "name": "composer stays within viewport",
+      "pass": true
+    },
+    {
+      "name": "document has no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "plugin panel has no horizontal overflow",
+      "pass": true
+    }
+  ]
+}
