@@ -167,8 +167,15 @@
   border-inline-start-width: 3px; border-radius: var(--dc-radius);
   margin-block-end: var(--dc-space);
 }
-:host(chat-view) .chat-message[data-speaker="user"] { background: var(--dc-panel); border-inline-start-color: var(--dc-accent); }
-:host(chat-view) .chat-message[data-speaker="assistant"] { border-inline-start-color: var(--dc-border); }
+:host(chat-view) .chat-message[data-speaker="user"] {
+  background: #172e47; border-color: #345779;
+  border-inline-start-color: #69a9f9;
+  margin-inline-start: clamp(0px, 5%, 48px);
+}
+:host(chat-view) .chat-message[data-speaker="assistant"] {
+  background: #10161f; border-color: #273342;
+  border-inline-start-color: #65788f;
+}
 :host(chat-view) .chat-message-body { color: var(--dc-text); font-size: 15px; line-height: 1.6; }
 :host(chat-view) .chat-message-meta { color: var(--dc-secondary); }
 /* Only the core message's own Markdown leaf, not formatted text in plugins. */
@@ -176,14 +183,21 @@
   --formatted-link-color: var(--dc-accent); --formatted-muted-color: var(--dc-secondary);
 }
 :host(chat-view) .msg.event-group {
-  background: var(--dc-bg); border: 1px solid var(--dc-border);
-  border-radius: var(--dc-radius); margin-block-end: var(--dc-space);
+  background: transparent; border: 1px solid transparent;
+  border-radius: 6px; margin-block-end: 4px;
 }
 :host(chat-view) .msg.event-group > summary {
-  background: var(--dc-panel); color: var(--dc-text); border-radius: 8px;
-  min-block-size: 36px; font-size: 13px; line-height: 1.5;
+  background: transparent; color: #8998aa; border-radius: 6px;
+  min-block-size: 26px; font-size: 12px; line-height: 1.4; padding-block: 3px;
 }
-:host(chat-view) .msg.event-group > summary:hover { background: var(--dc-hover); }
+:host(chat-view) .msg.event-group > summary:hover,
+:host(chat-view) .msg.event-group[open] > summary { background: var(--dc-panel); color: var(--dc-text); }
+:host(chat-view) .msg.event-group > summary:focus-visible { outline: 2px solid var(--dc-accent); outline-offset: -2px; }
+:host(chat-view) .msg.event-group[open] { border-color: var(--dc-border); }
+@media (forced-colors: active) {
+  :host(chat-view) .chat-message[data-speaker="user"] { border-inline-start-color: Highlight; }
+  :host(chat-view) .msg.event-group > summary { color: CanvasText; }
+}
 :host(chat-view) .group-msg + .group-msg { border-block-start-color: var(--dc-border); }
 :host(chat-view) .history-boundary { color: var(--dc-secondary); }
 :host(tool-execution-view) .tool-card { background: var(--dc-bg); border: 1px solid var(--dc-border); border-radius: var(--dc-radius); }
