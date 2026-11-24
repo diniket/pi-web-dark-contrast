@@ -173,8 +173,8 @@
   margin-inline-start: clamp(0px, 5%, 48px);
 }
 :host(chat-view) .chat-message[data-speaker="assistant"] {
-  background: #10161f; border-color: #273342;
-  border-inline-start-color: #65788f;
+  background: #142522; border-color: #2c443e;
+  border-inline-start-color: #527e70;
 }
 :host(chat-view) .chat-message-body { color: var(--dc-text); font-size: 15px; line-height: 1.6; }
 :host(chat-view) .chat-message-meta { color: var(--dc-secondary); }
