@@ -160,6 +160,37 @@
 :host(workspace-list) .ui-menu-item.danger,
 :host(session-list) .ui-menu-item.danger { color: var(--dc-error); }
 
+/* Dual Tone: core project/session navigation only; workspace and plugin labels stay unchanged. */
+:host(project-list) section { background: #141e2b; }
+:host(session-list) section { background: #13221f; }
+:host(project-list) section > h2 { background: #141e2b; border-block-color: #293a50; }
+:host(session-list) section > h2 { background: #13221f; border-block-color: #2c443e; }
+:host(project-list) h2 .ui-button { color: #8eb8ee; }
+:host(session-list) h2 .ui-button { color: #91bbaa; }
+:host(project-list) .ui-nav-list { scrollbar-color: #374151 #141e2b; }
+:host(session-list) .ui-nav-list { scrollbar-color: #374151 #13221f; }
+:host(project-list) .ui-nav-row-main,
+:host(session-list) .ui-nav-row-main { border-block-end-color: transparent; }
+:host(project-list) .ui-nav-row-meta { color: #8e9fb2; }
+:host(project-list) .ui-nav-row:hover .ui-nav-row-main { background: #1b2a3a; }
+:host(session-list) .ui-nav-row:hover .ui-nav-row-main { background: #192f29; }
+:host(project-list) .ui-nav-row[data-current="true"] .ui-nav-row-main {
+  background: #203d5c; border-color: transparent; border-inline-start-color: #69a9f9;
+}
+:host(session-list) .ui-nav-row[data-current="true"] .ui-nav-row-main,
+:host(session-list) .ui-nav-row[data-selected="true"] .ui-nav-row-main {
+  background: #20372f; border-color: transparent; border-inline-start-color: #75b49e;
+}
+:host(project-list) .ui-nav-row[data-current="true"] .ui-nav-row-action { background: #203d5c; }
+:host(session-list) .ui-nav-row[data-current="true"] .ui-nav-row-action,
+:host(session-list) .ui-nav-row[data-selected="true"] .ui-nav-row-action { background: #20372f; color: var(--dc-text); }
+:host(project-list) .ui-nav-row:focus-visible { outline-color: #69a9f9; }
+:host(session-list) .ui-nav-row:focus-visible { outline-color: #75b49e; }
+@media (forced-colors: active) {
+  :host(project-list) .ui-nav-row:focus-visible,
+  :host(session-list) .ui-nav-row:focus-visible { outline-color: Highlight; }
+}
+
 /* 3. Chat: message frames and event headers, never custom renderer bodies. */
 :host(chat-view) .chat { background: var(--dc-bg); padding: var(--dc-space); scrollbar-color: var(--dc-border) var(--dc-bg); }
 :host(chat-view) .chat-message {
